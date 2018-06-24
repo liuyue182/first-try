@@ -1,0 +1,93 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+    <!--&lt;!&ndash;外部样式&ndash;&gt;-->
+    <!--<link rel="stylesheet" href="style.css">-->
+    <!--&lt;!&ndash;内部样式&ndash;&gt;-->
+    <!--<style>-->
+        <!--div{-->
+            <!--background:pink;-->
+            <!--color:purple;-->
+            <!--height: 50px;-->
+        <!--}-->
+    <!--</style>-->
+
+    <!--&lt;!&ndash;外部和内部谁后写谁优先&ndash;&gt;-->
+    <!--&lt;!&ndash;内联优先于内部和外部&ndash;&gt;-->
+    <!--<style>-->
+        <!--#div1 h1{}-->
+    <!--</style>-->
+<!--</head>-->
+<!--<body>-->
+    <!--&lt;!&ndash;内联样式&ndash;&gt;-->
+    <!--<div style="background:BLUE;font-size: 41px;color:white;width:150px;">-->
+        <!--lalala-->
+    <!--</div>-->
+
+    <!--<div>-->
+        <!--<a href="https://github.com/liuyue182/first-try/pulse" target="_blank">我的github</a>-->
+
+        <!--<div style="background: aqua">-->
+            <!--<h3>我的github</h3>-->
+        <!--</div>-->
+        <!--<div style="background: aquamarine">-->
+            <!--<span>2个半</span>-->
+        <!--</div>-->
+        <!--<div style="background: cadetblue">-->
+            <!--<span>2个</span>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!---->
+
+
+
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            background:pink;
+        }
+        /*#first{*/
+            /*background:blueviolet;*/
+        /*}*/
+        /*#first h1{*/
+            /*color:white;*/
+        /*}*/
+        #first div1{
+            color:blueviolet;
+            background:orange;
+        }
+        #first h1{
+            color:white;
+            background:black;
+        }
+        #se>h1{
+            color:gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="first" class="div1">
+        <h1>第一行</h1>
+    </div>
+
+    <div class="div1">
+        <h2>第二行</h2>
+    </div>
+
+    <!--<div id="se">-->
+        <!--<h1>第三行</h1>-->
+        <!--<div>-->
+            <!--<h1>第四行</h1>-->
+        <!--</div>-->
+    <!--</div>-->
+</body>
+</html>
