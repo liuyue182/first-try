@@ -1,7 +1,7 @@
 #header{
-    background: #f00;
+    background: #f2f2f2;
     height: 32px;
-    color: #fff;
+    color: #a7a7a7;
     font-weight: 100;
     font-size: 12px;
 }
@@ -12,7 +12,7 @@
 }
 #login-contain a{
     padding-left: 20px;
-    color: #fff;
+    color: #a7a7a7;
 }
 #login-contain a:hover{
     color:red;
@@ -29,7 +29,7 @@
     position: relative;
 }
 #header-menu .menu a{
-    color:#fff;
+    color:#a7a7a7;
 }
 #header-menu .iconfont{
     color: #fff;
@@ -91,6 +91,9 @@
     color:#f00;
     text-decoration: underline;
 }
+#search{
+    height: 130px;
+}
 #search img{
     width: 240px;
     float: left;
@@ -105,7 +108,7 @@
     height: 36px;
 }
 #search-contain .search-input input{
-    width: 490px;
+    width: 400px;
     height:36px;
     outline: none;
     border:0;
@@ -119,6 +122,19 @@
     float: left;
     font-size: 13px;
     list-style: none;
+    border-right: 1px solid #cccccc;
+    padding: 0 12px;
+    margin-top:5px;
+    width: 42px;
+}
+#search-contain .search-list li.red a{
+    color:red;
+}
+#search-contain .search-list li.last{
+    border-right:0;
+}
+#search-contain .search-list li.first{
+    padding-left: 0;
 }
 #search-contain .search-input button{
     width: 132px;
@@ -129,4 +145,38 @@
     color: #fff;
     float: left;
     outline: none;
+}
+#main-menu{
+    margin-left: 250px;
+    height: 50px;
+}
+#main-menu img{
+    width: 100px;
+    margin-top: 3px;
+    margin-right: 20px;
+    float: left;
+}
+#main-menu ul{
+    float: left;
+
+}
+#main-menu li{
+    float: left;
+    padding: 6px 8px;
+    font-size: 16px;
+    font-weight: 550;
+}
+#banner{
+    position: relative;
+}
+#banner li a{
+    display: block;
+    width: 1230px;
+    margin: 0 auto;
+}
+#banner li a img{
+    width: 100%;
+}
+#banner .nav{
+    position: absolute;
 }
