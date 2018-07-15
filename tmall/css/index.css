@@ -73,13 +73,14 @@
     transform: rotate(180deg);
 }
 #header-menu .sub-menu{
-    border: 1px solid #ccc;
+    border: 1px solid white;
     border-top: 0;
     position: absolute;
     top:32px;
     left:0;
     width: 100px;
     display: none;
+    background: white;
 }
 #header-menu .sub-menu li{
     padding: 0 14px;
@@ -148,7 +149,7 @@
 }
 #main-menu{
     margin-left: 250px;
-    height: 50px;
+    height: 34px;
 }
 #main-menu img{
     width: 100px;
@@ -168,8 +169,9 @@
 }
 #banner{
     position: relative;
+    border-top:2px solid red;
 }
-#banner li a{
+#banner .banner-img li a{
     display: block;
     width: 1230px;
     margin: 0 auto;
@@ -179,4 +181,124 @@
 }
 #banner .nav{
     position: absolute;
+    background: rgba(0,0,0,0.5);
+    width: 200px;
+    top: -36px;
+    left: 40px;
+}
+#banner .nav >li{
+    font-size: 16px;
+    color: white;
+    height: 31.2px;
+}
+#banner .nav >li> a{
+    font-size: 14px;
+    color: white;
+    width: 200px;
+}
+#banner .nav li.product{
+    font-weight: 550;
+    height: 36px;
+    background: #FF0036;
+}
+#banner .nav li:not(.product):hover{
+    background: white;
+}
+#banner .nav li i{
+    margin: 0 10px;
+}
+
+#banner .nav li.pink:hover,#banner .nav li.pink:hover >a{
+    color: #ffc0fc;
+}
+#banner .nav li.blue:hover,#banner .nav li.blue:hover >a{
+    color: #5c3cff;
+}
+#banner .nav li.yellow:hover,#banner .nav li.yellow:hover >a{
+    color:#fccc00
+}
+#banner .pink:hover .banner-menu,#banner .blue:hover .banner-menu,#banner .yellow:hover .banner-menu{
+    display: block;
+}
+#banner .banner-menu{
+    position: absolute;
+    top:36px;
+    left: 200px;
+    background: #cccccc;
+    width: 852px;
+    height: 500px;
+    display: none;
+}
+#banner .banner-menu .banner-left{
+    width: 625px;
+    height: 500px;
+    float: left;
+    background: white;
+}
+#banner .banner-menu .banner-left li{
+    float: left;
+    color: black;
+}
+#banner .banner-menu .banner-menu-head{
+    float: left;
+   margin:  0 20px;
+    font-weight: 550;
+}
+#banner .banner-menu-list{
+    width: 493px;
+    float: left;
+    line-height: 20px;
+    margin: 5px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #ccc;
+}
+#banner .banner-menu-list li{
+    float: left;
+    margin-left: 10px;
+}
+#banner .banner-menu .banner-right{
+    float: left;
+    width: 210px;
+    height: 500px;
+    background: white;
+    margin: 2px 2px;
+}
+#banner .banner-right li img{
+    width: 105px;
+    float: left;
+}
+#brand {
+   background:  #f5f5f5;
+    overflow: hidden;
+    padding: 24px ;
+}
+#brand .brand-type{
+    height: 316px;
+    float: left;
+}
+#brand a img{
+    width: 100%;
+}
+#brand .brand1{
+    width: 234px;
+}
+#brand .brand2{
+    width: 485px;
+    margin-left: 10px;
+}
+#brand .title{
+    height: 55px;
+    background: white;
+    font-size: 18px;
+    padding: 0 10px;
+    line-height: 55px;
+    font-weight: 550;
+}
+#brand .title a{
+    background: url('../image/more.png') no-repeat;
+    background-position: right center;
+    background-size: 20px 20px;
+    width: 56px;
+    height: 54px;
+    float: right;
 }
