@@ -349,39 +349,106 @@
 #last{
     background: #f5f5f5;
     padding: 10px 0;
+    height: 500px;
 }
 #last .head img{
     width: 241px;
     height: 25px;
-}
-#last .head-right{
-    float: right;
-}
-#last .head-right li{
     float: left;
+}
+#last .head li{
+    float: right;
     margin: 5px 10px;
     font-size: 14px;
     font-weight: 600;
+
 }
-#last .head-right li a:hover{
+#last .head div{
+    width: 800px;
+    height: 30px;
+    float: right;
+
+}
+#last .head li a:hover{
     text-decoration-line: underline;
+}
+#last .last-left{
+    float: left;
+    width: 235px;
+    height: 618px;
+    margin: 5px;
+}
+#last .last-left a{
+
+    position: relative;
 }
 #last .last-left img{
     width: 235px;
     height: 618px;
     float: left;
 }
-#last .last-right .first{
+#last .last-left .one{
+    width: 70px;
+    height: 64px;
+    background: rgba(0,0,0,.9);
+    position: absolute;
+    top:430px;
+    float: left;
+    text-align: center;
+}
+#last .last-left .one span{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 24px;
+    font-size: 18px;
+    width: 36px;
+    color: white;
+    font-weight: 500;
+    margin-top: 6px;
+}
+#last .last-left .two{
+    width: 128px;
+    height: 64px;
+    background: rgba(93,94,98,.9);
+    position: absolute;
+    top:430px;
+    left:-171px;
+    float: left;
+    color: white;
+    line-height: 24px;
+}
+#last .last-left .two span{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 24px;
+    font-size: 18px;
+    color: white;
+    margin-left: 8px;
+}
+#last .last-left .two .ai{
+    margin-top: 6px;
+}
+#last .last-right .block{
     float: left;
     width: 484px;
     height: 316px;
+    background: #f5f5f5;
+}
+#last .block .first{
+    float: left;
+    background: white;
+    width: 484px;
+    height: 316px;
+    margin-left: 13px;
+    background: #f5f5f5;
+}
+#last .block .first div{
+    width: 462px;
+    height: 225px;
     background: white;
 }
-#last .last-right .first img{
-    width: 200px;
-    height: 200px;
-    float: left;
-}
-#last .last-right .first{
-    float: left;
-}
+#last .block .first img{
+     width: 200px;
+     height: 200px;
+     float: left;
+ }
