@@ -369,4 +369,19 @@
 #last .last-left img{
     width: 235px;
     height: 618px;
+    float: left;
+}
+#last .last-right .first{
+    float: left;
+    width: 484px;
+    height: 316px;
+    background: white;
+}
+#last .last-right .first img{
+    width: 200px;
+    height: 200px;
+    float: left;
+}
+#last .last-right .first{
+    float: left;
 }
