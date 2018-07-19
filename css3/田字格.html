@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            float: left;
+            position: relative;
+        }
+        div:hover{
+            border-color: #0f0;
+            z-index: 1;
+        }
+        #div2{
+            left:-1px;
+        }
+        #div3{
+            clear: both;
+            top:-1px;
+        }
+        #div4{
+            left:-1px;
+            top:-1px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+</body>
+</html>
