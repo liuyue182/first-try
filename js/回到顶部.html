@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            height: 2000px;
+        }
+        div{
+            width: 35px;
+            height: 85px;
+            background: url("go-top.jpeg") -22px;
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+        }
+        div:hover{
+            background-position: -113px;
+        }
+    </style>
+</head>
+<body>
+<h3>你看到我啦（ﾉ∀｀）σ</h3>
+<div id="go-top"></div>
+<script>
+    var w=document.getElementById('go-top');
+    scrollTo(0,1500);
+    w.onclick=function () {
+        var top = document.documentElement.scrollTop;
+        var  timer=setInterval(function () {
+            w.style.backgroundPosition='-200px';
+                scrollTo(0,top*=0.6);
+            console.log(top);
+                if(top<1){
+                    clearInterval(timer);
+                    scrollTo(0,0);
+                    w.style.backgroundPosition='-22px';
+                }
+            },50)
+
+    }
+</script>
+</body>
+</html>
