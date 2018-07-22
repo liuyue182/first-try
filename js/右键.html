@@ -48,7 +48,7 @@
             var dw=document.documentElement.offsetWidth;
             var mw=oMenu.offsetWidth;
             if(e.clientX>(dw-mw)){
-                oMenu.style.left=(e.clientX-mw)+'px';
+                oMenu.style.left=(dw-mw)+'px';
             }else{
 
                 oMenu.style.left = e.clientX +'px';
