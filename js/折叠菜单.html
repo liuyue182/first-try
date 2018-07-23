@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #menu{
+            border: 1px solid #000;
+            width: 150px;
+            margin: 100px auto;
+        }
+        li{
+            list-style: none;
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            display: block;
+            background: black;
+            color: white;
+            text-align: center;
+        }
+        .sub-menu {
+            display: none;
+        }
+        .sub-menu li{
+            height: 22px;
+            line-height: 22px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li>
+            <a href="">管理区</a>
+            <ul class="sub-menu" >
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">交流区</a>
+            <ul class="sub-menu">
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        var aA=document.getElementsByTagName('a');
+        var aSubMenu=document.getElementsByClassName('sub-menu');
+        for(var i=0;i<aA.length;i++)
+        {
+            aA[i].xx=i;
+            aA[i].onclick=function () {
+                if(aSubMenu[this.xx].style.display=='block'){
+                    aSubMenu[this.xx].style.display='none'
+                }
+                else aSubMenu[this.xx].style.display='block';
+                return false;
+            }
+        }
+
+    </script>
+</body>
+</html>
