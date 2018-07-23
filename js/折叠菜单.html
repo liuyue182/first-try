@@ -53,17 +53,35 @@
         </li>
     </ul>
     <script>
-        var aA=document.getElementsByTagName('a');
-        var aSubMenu=document.getElementsByClassName('sub-menu');
-        for(var i=0;i<aA.length;i++)
-        {
+        var aA = document.getElementsByTagName('a');
+        var oUl = document.getElementById('menu');
+        var aSubMenu = oUl.getElementsByTagName('ul');
+        //        var aSubMenu = document.getElementsByClassName('sub-menu');
+        for(var i=0;i<aA.length;i++){
             aA[i].xx=i;
-            aA[i].onclick=function () {
-                if(aSubMenu[this.xx].style.display=='block'){
-                    aSubMenu[this.xx].style.display='none'
+            aA[i].onclick = function(){
+//                if(aSubMenu[this.xx].style.display == 'block'){
+//                    aSubMenu[this.xx].style.display = 'none';
+//                }else{
+//                    aSubMenu[this.xx].style.display ='block';
+//                }
+
+                if(getStyle(aSubMenu[this.xx],'display') == 'none'){
+                    aSubMenu[this.xx].style.display = 'block';
+                }else{
+                    aSubMenu[this.xx].style.display ='none';
                 }
-                else aSubMenu[this.xx].style.display='block';
+
+
                 return false;
+            }
+        }
+
+        function getStyle(elem,prop){
+            if(elem.currentStyle){
+                return elem.currentStyle[prop];
+            }else{
+                return getComputedStyle(elem,false)[prop];
             }
         }
 
