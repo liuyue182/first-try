@@ -437,19 +437,41 @@
 #last .block .first{
     float: left;
     width: 484px;
-    height: 316px;
+    height: 300px;
     margin-left: 13px;
     background: white;
-    position: relative;
+    /*position: relative;*/
 }
-#last .block .first .out{
-    background: #f5f5f5;
-    width: 462px;
-    height: 282px;
-    margin: 16px auto;
+#last .block .first .big{
+width: 200px;
+height: 200px;
+position: relative;
+top: -22px;
+left: 251px;
 }
+#last .block .first .small{
+width: 23px;
+height: 23px;
+}
+#last .next a{
+    display: block;
+    width: 458px;
+    height: 225px;
+    float: left;
+    margin-left: 7px;
+    border: 2px solid #f5f5f5;
+
+}
+
+/*#last .block .first {*/
+    /*background: #f5f5f5;*/
+    /*width: 462px;*/
+    /*height: 282px;*/
+    /*margin: 16px auto;*/
+/*}*/
 #last .block .first ul{
     height: 57px;
+  margin: 5px 7px 0 7px;
 }
 #last .block .first li{
     float: left;
@@ -459,42 +481,43 @@
     font-weight: 500;
     text-align: center;
     line-height: 57px;
+    background: #f1f1f1;
 }
-#last .block .first .inside{
-    width: 458px;
-    height: 222px;
-    background: white;
-    margin: 0 auto;
+/*#last .block .first .inside{*/
+    /*width: 458px;*/
+    /*height: 222px;*/
+    /*background: white;*/
+    /*margin: 0 auto;*/
 
 
-}
-#last .block .first .big{
-     width: 200px;
-     height: 200px;
-    margin-top: 10px;
-    margin-right: 30px;
-    position: relative;
-    top: -46px;
-    left: 170px;
- }
-#last .block .first .small{
-    width: 23px;
-    height: 23px;
+/*}*/
+/*#last .block .first .big{*/
+     /*width: 200px;*/
+     /*height: 200px;*/
+    /*margin-top: 10px;*/
+    /*margin-right: 30px;*/
+    /*position: relative;*/
+    /*top: -46px;*/
+    /*left: 170px;*/
+ /*}*/
+/*#last .block .first .small{*/
+    /*width: 23px;*/
+    /*height: 23px;*/
 
-}
-#last .block .inside  a{
-    position: relative;
+/*}*/
+/*#last .block .inside  a{*/
+    /*position: relative;*/
 
-    display: block;
-    /*background: #f5f5f5;*/
-    float: left;
+    /*display: block;*/
+    /*!*background: #f5f5f5;*!*/
+    /*float: left;*/
 
-}
-#last .block .inside .one{
+/*}*/
+/*#last .block .inside .one{*/
 
-    font-size: 24px;
-    color: #1cb364;
-    font-weight: 700;
-    margin-left:10px ;
+    /*font-size: 24px;*/
+    /*color: #1cb364;*/
+    /*font-weight: 700;*/
+    /*margin-left:10px ;*/
 
-}
+/*}*/
