@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #container{
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #container .imgs img{
+            position: absolute;
+            display: none;
+        }
+        #container ul{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        #container .nav li,.arrows span{
+            float: left;
+            background: black;
+            color: white;
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+        }
+        #container .arrows{
+            position: absolute;bottom: 10px;
+            left: 10px;
+        }
+        #container .imgs .select{
+            display: block;
+        }
+        #container .nav .select{
+            background: #fccc00;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="imgs">
+            <img  class="select" src="img/1.jpg" alt="">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+        </div>
+        <ul class="nav">
+            <li class="select">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div class="arrows">
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+        </div>
+    </div>
+    <script>
+        var aImg=document.getElementsByTagName('img');
+        var aLi=document.getElementsByTagName('li');
+        var oPrev = document.getElementById('prev');
+        var oNext = document.getElementById('next');
+        var oContainer = document.getElementById('container');
+        var nowIndex=0;
+        for (var i=0;i<aLi.length;i++){
+            aLi[i].index=i;
+            aLi[i].onmouseover=function () {
+                nowIndex=this.index;
+                for (j=0;j<aLi.length;j++) {
+                    aImg[j].className='';
+                    aLi[j].className='';
+                }
+                aImg[this.index].className='select';
+                this.className='select';
+
+            }
+        }
+        oNext.onclick=function () {
+            nowIndex++;
+            if(nowIndex==aLi.length){
+                nowIndex=0;
+            }
+            change(nowIndex);
+        }
+        oPrev.onclick=function () {
+            nowIndex--;
+            if(nowIndex==-1){
+                nowIndex=aLi.length-1;
+            }
+            change(nowIndex);
+        }
+        function change(x) {
+            for (j=0;j<aLi.length;j++) {
+                aImg[j].className='';
+                aLi[j].className='';
+            }
+            aImg[x].className='select';
+            aLi[x].className='select';
+        }
+        play();
+        var time;
+        oContainer.onmouseover=function () {
+            clearInterval(time);
+        }
+        oContainer.onmouseout=function () {
+            play();
+        }
+        function play() {
+            time=setInterval(function () {
+                oNext.onclick();
+            },2000)
+        }
+    </script>
+</body>
+</html>

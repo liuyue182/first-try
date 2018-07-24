@@ -3187,7 +3187,7 @@
                 </ul>
                 </div>
             </div>
-        <div class="last-left">
+            <div class="last-left">
             <a href="">
                <div><img src="image/last1.png" alt=""></div>
                 <div class="one">
@@ -3199,21 +3199,32 @@
                 </div>
             </a>
         </div>
-        <div class="last-right">
+            <div class="last-right">
             <div class="block">
                 <ul>
                     <li class="first">
                         <ul>
-                            <li>今日疯抢</li>
+                            <li class="select">今日疯抢</li>
                             <li>量贩装</li>
                         </ul>
                         <div class="next">
-                            <a href="">
-
-                                <img class="small" src="image/brand.png" alt="">
-                                <span class="one">限时限量疯抢</span><br>
-                                <!--<span class="two">1元超值疯抢中</span>-->
+                            <a class="select" href="">
                                 <img  class="big" src="image/last3.jpg" alt="">
+                                <div>
+                                    <img class="small" src="image/brand.png" alt="">
+                                    <span class="one">限时限量疯抢</span><br>
+                                    <span class="two">1元超值疯抢中</span>
+                                </div>
+
+                            </a>
+                            <a href="">
+                                <img  class="big" src="image/last4.jpg" alt="">
+                                <div>
+                                    <img class="small" src="image/brand.png" alt="">
+                                    <span class="one">蓝月亮洗洁精</span><br>
+                                    <span class="two">下单立减5元</span>
+                                </div>
+
                             </a>
                         </div>
                 </li>
@@ -3223,5 +3234,23 @@
         </div>
     </div>
 </div>
+<script>
+    var Last=document.getElementById('last');
+    var dLi=Last.getElementsByClassName('first');
+    var aLi=dLi.getElementsByTagName('li');
+    var aDiv=Last.getElementsByClassName('next');
+    var aA=aDiv.getElementsByTagName('a');
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index=i;
+        aLi[i].onmouseover=function () {
+            for(var j=0;j<aLi.length;j++) {
+                aLi[j].className='';
+                aA[j].className='';
+            }
+            this.className='select';
+            aA[this.index].className='select';
+        }
+    }
+</script>
 </body>
 </html>
