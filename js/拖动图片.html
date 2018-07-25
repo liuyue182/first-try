@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #pink{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="pink"></div>
+    <script>
+        var aDiv=document.getElementById('pink')
+        aDiv.onmousedown=function (e) {
+            var ileft=e.clientX-this.offsetLeft;
+            var itop=e.clientY-this.offsetTop;
+            document.onmousemove = function (e) {
+                var divLeft = e.clientX - ileft;
+                var divTop = e.clientY - itop;
+                if(divLeft > document.documentElement.offsetWidth - aDiv.offsetWidth){
+                    divLeft = document.documentElement.offsetWidth - aDiv.offsetWidth;
+                }else if(divLeft<0){
+                    divLeft = 0;
+                }
+                if(divTop > window.innerHeight - aDiv.offsetHeight){
+                    divTop = window.innerHeight - aDiv.offsetHeight;
+                }else if(divTop < 0){
+                    divTop  = 0;
+                }
+                aDiv.style.left = divLeft +'px';
+                aDiv.style.top = divTop + 'px';
+
+            }
+           aDiv.onmouseup=function () {
+                document.onmousemove=null;
+            }
+        }
+    </script>
+</body>
+</html>

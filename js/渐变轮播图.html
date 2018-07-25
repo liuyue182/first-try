@@ -111,15 +111,11 @@
         function changeImg(index){
             for(var j=0;j<aLi.length;j++){
                 aLi[j].className = '';
-//                aImg[j].className = '';
             }
             aLi[index].className = 'selected'
-//            aImg[index].className = 'selected';
             aImg[index].style.zIndex = ++zIndex;
             aImg[index].style.opacity = 0;
             animate(aImg[index],{opacity:100});
-//            aLi[index].className = 'selected';
-            //
         }
 
         oContainer.onmouseover = function () {
@@ -129,23 +125,12 @@
             play();
         }
         play();
-//        function fn() {
-//            oNext.onclick();
-//        }
         var fn = function(){
             oNext.onclick();
         }
-
         function play(){
             timer = setInterval(fn,1000);
         }
-
-
-
-
-
-
-
 
     </script>
 </body>

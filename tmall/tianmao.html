@@ -3202,12 +3202,12 @@
             <div class="last-right">
             <div class="block">
                 <ul>
-                    <li class="first">
+                    <li id="first">
                         <ul>
                             <li class="select">今日疯抢</li>
                             <li>量贩装</li>
                         </ul>
-                        <div class="next">
+                        <div id="next">
                             <a class="select" href="">
                                 <img  class="big" src="image/last3.jpg" alt="">
                                 <div>
@@ -3228,18 +3228,20 @@
                             </a>
                         </div>
                     </li>
+                    <li>
 
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
 <script>
-    var Last=document.getElementById('last');
-    var dLi=Last.getElementsByClassName('first');
+    var dLi=document.getElementById('first');
     var aLi=dLi.getElementsByTagName('li');
-    var aDiv=Last.getElementsByClassName('next');
+    var aDiv=document.getElementById('next');
     var aA=aDiv.getElementsByTagName('a');
+    var nowindex=0;
     for(var i=0;i<aLi.length;i++){
         aLi[i].index=i;
         aLi[i].onmouseover=function () {
@@ -3250,7 +3252,18 @@
             this.className='select';
             aA[this.index].className='select';
         }
-    }2
+    }
+    setInterval(function () {
+        if (nowindex==1)
+            nowindex=0;
+        else nowindex++;
+        for(var j=0;j<aLi.length;j++) {
+            aLi[j].className='';
+            aA[j].className='';
+        }
+        aLi[nowindex].className='select';
+        aA[nowindex].className='select';
+    },2000)
 </script>
 </body>
 </html>
