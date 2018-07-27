@@ -349,7 +349,7 @@
 #last{
     background: #f5f5f5;
     padding: 10px 0;
-    height: 500px;
+    height: 700px;
 }
 #last .head img{
     width: 241px;
@@ -505,4 +505,22 @@ left: 209px;
 }
 #next .two{
     font-size: 20px;
+}
+#last .block .many{
+    width: 236px;
+    height: 302px;
+    background: white;
+    float: left;
+}
+#last .block .many img{
+    width: 185px;
+    height: 185px;
+}
+#last .block .many .profile{
+    width: 135px;
+    height: 40px;
+}
+#last .block .many .price{
+    width: 234px;
+    height: 18px;
 }
