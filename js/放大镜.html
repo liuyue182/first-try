@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #left,#right{
+            width: 400px;
+            height: 400px;
+            float: left;
+            margin-right: 20px;
+        }
+        #right{
+            overflow: hidden;
+            position: relative;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        #select{
+            display: none;
+            width: 200px;
+            height: 200px;
+            background: rgba(230,230,230,.5);
+            position: absolute;
+            float: left;
+            top: 0;
+            left: 0;
+        }
+        #hidd{
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="left">
+    <img id="disp" src="img/5.jpg" alt="">
+    <div id="select"></div>
+</div>
+<div id="right">
+    <img id="hidd" src="img/6.jpg" alt="">
+</div>
+<script>
+    var aDiv=document.getElementById('select');
+    var aL=document.getElementById('left')
+    var aR=document.getElementById('right');
+    var Img=document.getElementById('hidd');
+    aL.onmouseover=function () {
+
+        aR.style.display='block';
+        aDiv.style.display='block';
+        aL.onmousemove=function (e) {
+            var divLeft=e.clientX-aDiv.offsetLeft/2;
+            var divTop=e.clientY-aDiv.offsetTop/2;
+
+            console.log(divTop)
+            // if(divLeft > 400 - aDiv.offsetWidth){
+            //     divLeft = 400 - aDiv.offsetWidth;
+            // }else if(divLeft<0){
+            //     divLeft = 0;
+            // }
+            // if(divTop > 400 - aDiv.offsetHeight){
+            //     divTop = 400 - aDiv.offsetHeight;
+            // }else if(divTop < 0){
+            //     divTop  = 0;
+            // }
+            aDiv.style.left = divLeft +'px';
+            aDiv.style.top = divTop + 'px';
+            Img.style.left=-divLeft*2+'px';
+            Img.style.top=-divTop*2+'px';
+        }
+
+    }
+    aL.onmouseout=function () {
+        aDiv.style.display='none';
+        aR.style.display='none';
+    }
+</script>
+</body>
+</html>
