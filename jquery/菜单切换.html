@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #menu{
+            margin: 100px 500px;
+            position: relative;
+        }
+        #menu div{
+            width: 400px;
+            height: 200px;
+            float: left;
+            background: #bbbbbb;
+            position: absolute;
+            border-top: 1px solid #000;
+            display: none;
+        }
+        #menu ul{
+            height: 30px;
+            width: 400px;
+        }
+        #menu li{
+            float: left;
+            list-style: none;
+            width: 120px;
+            background: #bbb;
+            margin-right: 10px;
+
+            height: 30px;
+            color: white;
+        }
+        #menu li.select{
+            background: black;
+        }
+        #menu div.show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="menu">
+    <ul>
+        <li class="select">111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <div class="show">
+        aaa
+    </div>
+    <div>
+        bbb
+    </div>
+    <div>
+        ccc
+    </div>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        $('li').on('click',function () {
+            $(this).addClass('select').siblings().removeClass('select');
+            $('#menu div').eq($(this).index()).addClass('show').siblings().removeClass('show');
+        })
+    })
+</script>
+</body>
+</html>
