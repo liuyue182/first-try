@@ -434,6 +434,9 @@
     height: 316px;
     background: #f5f5f5;
 }
+#ul1{
+    float: left;
+}
 #first{
     float: left;
     width: 484px;
