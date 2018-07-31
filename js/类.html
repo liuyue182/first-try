@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Father() {
+        this.name='ww';
+        this.xx={name:'out'}
+    }
+    // Father.prototype.xx={
+    //     name:'out'
+    // }
+    Father.prototype.eat=function () {
+        console.log(this.name);
+    }
+    // var p1=new Father();
+    // p1.eat();
+    // p1.xx.name='yy';
+    // p1.eat();
+    // var p2=new Father();
+    // p2.eat();
+    function Son() {
+        // this.name='jj';
+    }
+    Son.prototype=new Father();
+    var s1=new Son();
+    s1.eat();
+    s1.name='4';
+    s1.eat();
+    var s2=new Son();
+    s2.eat();
+</script>
+</body>
+</html>

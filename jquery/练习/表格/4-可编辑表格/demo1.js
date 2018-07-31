@@ -1,4 +1,4 @@
-$(function(){
+3_选项卡$(function(){
 	$("tbody tr:even").css("background-color","#edf");//设置隔行变色
 	var $editTd = $("td.editable");//获得我们想要编辑的单元格对象
 	$editTd.click(function(){//为单元格对象注册单击事件
