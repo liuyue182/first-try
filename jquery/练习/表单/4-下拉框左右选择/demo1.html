@@ -96,6 +96,14 @@ span {
             $('#remove_all').click(function() {
                 $('#select2 option').appendTo('#select1');
             });
+            $('#select1').dblclick(function(){ //绑定双击事件
+                //获取全部的选项,删除并追加给对方
+                $("option:selected",this).appendTo('#select2'); //追加给对方
+            });
+            //双击选项
+            $('#select2').dblclick(function(){
+                $("option:selected",this).appendTo('#select1');
+            });
         })
 	</script>
 </body>
