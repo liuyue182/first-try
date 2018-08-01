@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html{
+            font-size: 20px;
+        }
+        #div1{
+            font-size: 18px;
+        }
+        #div2{
+            font-size: 10px;
+        }
+        #div3{
+            width: 1rem;
+            height: 1rem;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <div id="div3">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        document.body.onresize=function () {
+           var w=document.documentElement.clientWidth;
+           document.documentElement.style.fontSize=w/5+'px';
+        }
+    </script>
+</body>
+</html>
