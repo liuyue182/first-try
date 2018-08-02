@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //let的特性都有
+    // const NUM=10;
+    const NUM={
+        name:'zs',
+        age:15
+    };
+    NUM.age=55;
+    Object.freeze(NUM);
+    NUM.age=45;
+    console.log(NUM);
+
+</script>
+</body>
+</html>
