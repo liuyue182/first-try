@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            border: none;
+        }
+        html,body{
+            height: 100%;
+        }
+        #contain img{
+            width: 25%;
+            float: left;
+            border-bottom: 5px solid black;
+            border-right: 5px solid black;
+            box-sizing: border-box;
+        }
+        #big-img{
+            display: none;
+            background-color: black;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <div id="contain">
+
+    </div>
+    <div id="big-img">
+
+    </div>
+    <script src="../zepto.js"></script>
+    <script src="../touch.js"></script>
+    <script>
+        $(function () {
+            var iNow=0;
+            var str='';
+            for(var i=0;i<24;i++){
+                str+='<img src="img/thumbs/'+(i+1)+'.jpg">';
+            }
+            $('#contain').append(str);
+        })
+        $('#contain').on('tap','img',function(){
+            $('#contain').hide();
+            iNow = $(this).index();
+            $('#big-img').css('background-image','url(img/'+($(this).index()+1)+'.jpg)')
+                .show();
+
+        });
+        $('#big-img').on('tap',function(){
+            $('#contain').show();
+            $('#big-img').hide();
+        }).on('swipeLeft',function () {
+            iNow++;
+            if(iNow==24){
+            iNow=0;}
+            $('#big-img').css('background-image','url(img/'+(iNow+1)+'.jpg)')
+        }).on('swipeRight',function () {
+            iNow--;
+            if(iNow==-1){
+                iNow=23;}
+            $('#big-img').css('background-image','url(img/'+(iNow+1)+'.jpg)')
+        })
+
+    </script>
+</body>
+</html>
