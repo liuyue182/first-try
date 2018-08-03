@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--改变this指向-->
+<!--call,apply,bind-->
+<script>
+    // function f() {
+    //     console.log(this);
+    // }
+    // var o={
+    //     name:'aa'
+    // }
+    // // f.call(o);
+    // // f.apply(o);
+    // var fn=f.bind(o);
+    // fn();
+    // //bind返回一个函数
+
+    function f(a,b) {
+        console.log(a,b);
+        console.log(this);
+    }
+    var o={
+        name:'aa'
+    }
+    f.call(o,1,2);
+    f.apply(o,[1,2]);
+    //apply传数组
+    var fn= f.bind(o,1,2);
+    fn();
+</script>
+</body>
+</html>

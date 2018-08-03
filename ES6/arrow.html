@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--箭头函数-->
+<ul>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+</ul>
+<script>
+    var aLi=document.getElementsByTagName('li');
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].onclick=function () {
+           setTimeout(()=> {
+               console.log(this.innerHTML);
+           },1000);
+        }
+    }
+    //箭头函数里面的this是定义时指向
+    //普通函数里面的this是运行时指向
+    //也可理解为指向上一层函数
+
+    var f=function (a) {
+        console.log(a)
+    }
+    f(1);
+
+    var f= (a) =>{
+        console.log(a)
+    }
+    f(2);
+    //可正常执行
+
+
+    function f() {
+        console.log(arguments[0])
+    }
+    f(1,2,3);
+
+    var f = ()=> {
+        console.log(arguments[0])
+    }
+    f(1,2,3);
+    //arrow函数不能使用arguments自动传参，怎样解决？
+
+
+    function User() {
+        this.name='aa';
+    }
+    User.prototype.say=()=>{
+
+    }
+
+    var  User=()=>{
+        this.name='ad';
+    }
+    //不能用箭头函数直接定义类
+    var  u=new User();
+    console.log(u.name);
+
+    var obj = {
+        name:'zs',
+        age:12,
+        say:()=>{
+            console.log(this.age);
+        }
+    }
+    obj.say();
+    //undefined,this指向window
+</script>
+</body>
+</html>
