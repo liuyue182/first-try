@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    // $.get('a.json',function (d1) {
+    //     console.log(d1.a);
+    //     var t=d1.teacher;
+    //     $.get('b.json',function (d2) {
+    //         console.log(d2.b);
+    //         $.get('c.json',{name:t},function(d3){
+    //             console.log(d3.c);
+    //         });
+    //     })
+    // })
+       var f1 = function () {
+           var p = new Promise(function(resolve,r){
+               setTimeout(function(){
+                   resolve(11111);
+               },1000);
+           });
+           return p;
+       }
+    var p=new Promise(function (resolve,reject) {
+        console.log('000');
+        setTimeout(function () {
+            resolve(222);
+        },1000);
+    })
+    p.then((data)=>{
+        console.log(data);
+        return f1();
+    }).then((data)=>{
+        console.log(data);
+    })
+</script>
+</body>
+</html>
