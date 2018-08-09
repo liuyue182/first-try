@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li v-for="(val,index) in sortStu">
+        学生姓名是：{{val.name}},年龄是：{{val.age}},{{index}}
+    </li>
+</ul>
+<script src="vue.js"></script>
+<script>
+var vm=new Vue({
+    el:'ul',
+    data:{
+        msg:'sssss',
+        arr:[111,222,333,444],
+        stu:[{
+            name:'Lisa',
+            age:20
+        },{
+            name:'lilei',
+            age:14
+        },{
+            name:'lili',
+            age:24
+        }],
+    },
+    computed:{
+        sortStu(){
+            return this.stu.sort(function (a,b) {
+                return a.age - b.age;
+            })
+        }
+    }
+})
+</script>
+</body>
+</html>

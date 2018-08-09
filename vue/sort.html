@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    // sort修改原数组
+    // var arr=[1,5,4,6];
+    // arr.sort();
+    // console.log(arr);
+
+    var arr=[{age:12},{age:14},{age:2}];
+    arr.sort(function (a,b) {
+        return a.age-b.age;
+    })
+    console.log(arr);
+</script>
+</body>
+</html>

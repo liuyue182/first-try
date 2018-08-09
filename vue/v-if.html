@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+    <!--v-if是假则不会有这个元素-->
+    <!--<p v-if="msg">-->
+        <!--ppppp-->
+    <!--</p>-->
+    <!--<h1 v-else>-->
+        <!--hhhh-->
+    <!--</h1>-->
+
+
+    <!--<p v-if="xx=='B'">-->
+        <!--ppppp-->
+    <!--</p>-->
+    <!--<h1 v-else-if="xx=='A'">-->
+        <!--hhhh-->
+    <!--</h1>-->
+
+
+    <div v-if="msg">
+        dddddd
+    </div>
+    <div v-else>
+        ffff
+    </div>
+
+
+<!--v-show操纵disp:none和block-->
+    <!--<div v-show="msg">-->
+        <!--dddd-->
+    <!--</div>-->
+    <!--template使子元素不会套在template里-->
+    <template v-show="msg">
+        <p>ppppp</p>
+        <p>pppppp</p>
+        <h1>h1h1h1h1hh</h1>
+    </template>
+</div>
+<script src="vue.js"></script>
+<script>
+    var vm=new Vue({
+        el:'#div1',
+        data:{
+            msg:true,
+            xx:'B'
+        }
+    })
+</script>
+</body>
+</html>
