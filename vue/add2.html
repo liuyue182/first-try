@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+    <style>
+        #div1{
+            margin: 0 auto;
+            width: 300px;
+            height: 50px;
+        }
+        .red{
+            background: red;
+        }
+        li{
+            background: #1cb364;
+            width: 200px;
+            height: 50px;
+            list-style: none;
+            margin: 0 auto;
+            margin-top: 10px;
+            line-height: 50px;
+            padding: 0 10px;
+        }
+        span{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <ul>
+            <li v-for="val in arr" @click="fn(val)" :class="{red:val.active}">
+                {{val.name}}
+                <span>{{val.price}}</span>
+
+            </li>
+        </ul>
+        <hr>
+           total:
+           <span >
+            {{msg}}
+        </span>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm=new Vue({
+            el:'#div1',
+            data:{
+                isRed:false,
+                msg:0,
+                arr:[{
+                    name:'aaa',
+                    price:234,
+                    active:false
+                },{
+                    name:'bbb',
+                    price:927,
+                    active:false
+                },{
+                    name:'ccc',
+                    price:247,
+                    active:false
+                },{
+                    name:'ddd',
+                    price:316,
+                    active:false
+                },{
+                    name:'eee',
+                    price:532,
+                    active:false
+                }]
+            },
+            methods:{
+                fn(val){
+                    val.active=!val.active;
+
+                if(val.active){
+                    this.msg+=val.price
+                }else this.msg-=val.price
+                }
+            }
+        })
+    </script>
+</body>
+</html>
