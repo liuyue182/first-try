@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <input type="text" @keyup="search" v-model="val">
+    <button @click="add">add</button>
+    <ul>
+        <li v-for="xx in arr" :class="{red:xx.active}" @click="xx.active = !xx.active" v-show="xx.isShow">
+            {{xx.value}}
+        </li>
+    </ul>
+</div>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            arr:[],
+            val:'',
+        },
+        methods:{
+            add(){
+                this.arr.push({value:this.val,active:false,isShow:true});
+                this.val = '';
+                this.fn();
+                this.arr.sort(function(a,b){
+                    return a.value - b.value;
+                });
+            },
+            search(){
+                 this.fn();
+                 this.arr.forEach((elem)=>{
+                    if(elem.value.indexOf(this.val) == -1){
+                        elem.isShow = false;
+                    }
+                 })
+            },
+            fn(){
+                this.arr.forEach((elem)=>{
+                    elem.isShow = true;
+                })
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>
