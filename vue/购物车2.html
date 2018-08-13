@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="cart">
+    <button>添加商品</button>
+    <table id="tbl">
+        <thead>
+        <tr>
+            <th></th>
+            <th>商品图片</th>
+            <th>商品信息</th>
+            <th>商品金额</th>
+            <th>商品数量</th>
+            <th>总金额</th>
+            <th>编辑</th>
+        </tr>
+        </thead>
+        <tbody id="product-list">
+        <tr v-for="val in arr">
+            <div>
+                <td><input type="checkbox" @click="fn(val)"></td>
+                <td><img src="01.jpg" alt="" width="100"></td>
+                <td>{{val.name}}</td>
+                <td>{{val.price}}</td>
+                <td>
+                    <button @click="sub(val)">-</button>
+                    <input type="text" v-model="val.num">
+                    <button @click="add(val)">+</button>
+                </td>
+                <td class="total-price">{{val.total}}</td>
+                <td><a href="">删除</a></td>
+            </div>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="5"></td>
+            <td>
+                总计：<span>{{totalPrice}}</span></td>
+            <td>
+                <button>结账</button>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+<script src="vue.js"></script>
+<script>
+    var vm=new Vue({
+        el:'#cart',
+        data:{
+            totalPrice:0,
+            arr:[{
+                name:'黄鹤楼',
+                price:19,
+                total:0,
+                num:0,
+                msg:true
+            },
+            {
+                name:'加多宝',
+                price:8,
+                total:0,
+                num:0,
+                msg:true
+
+            }]
+        },
+        methods:{
+            sub(val){
+                if(val.num!=0){
+                    val.num--;
+                    val.total=val.num*val.price;
+                }
+            },
+            add(val){
+                val.num++;
+                val.total=val.num*val.price
+            },
+            del(val){
+                val.msg=false;
+            },
+            fn(val){
+                this.totalPrice+=val.total;
+            }
+        }
+    })
+</script>
+</body>
+</html>

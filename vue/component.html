@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div2">
+    <demo xx="sss" :yy="m"></demo>
+    <demo xx="ddd" yy="gl"></demo>
+
+</div>
+<script src="vue.js"></script>
+<script>
+    // Vue.component('demo',{
+    //     template:"<h2>44444ss</h2>"
+    // });
+    new Vue({
+        el:'#div2',
+        data:{
+            m: 'mmm',
+        },
+        components:{
+            demo:{
+                template:"<div>{{xx}} {{yy}}</div>",
+                props:['xx','yy']
+            }
+        }
+
+    });
+    // new Vue({
+    //     el:'#div1',
+    //     data:{
+    //
+    //     }
+    //
+    // })
+</script>
+</body>
+</html>
