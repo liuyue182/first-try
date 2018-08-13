@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #dialog-box{
+            width: 400px;
+            /*height: 300px;*/
+            margin: 50px auto;
+        }
+        .dialog-title{
+            background: dodgerblue;
+            height: 30px;
+        }
+        .dialog-title span{
+            line-height: 30px;
+            padding: 0 10px;
+        }
+        .close{
+            float: right;
+        }
+        .content{
+            background: #bbbbbb;
+            height: 100px;
+            padding: 40px 10px;
+        }
+        .content span{
+            display: block;
+            /*width: 30px;*/
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <button @click="login">登录</button>
+    <button @click="reg">注册</button>
+    <my-dialog title="登录" v-show="loginShow" @close="close"></my-dialog>
+        <span>用户名：</span>
+        <input type="text">
+        <br>
+        <span>密码d：</span>
+        <input type="text">
+    <my-dialog title="注册" v-show="regShow" @close="close"></my-dialog>
+
+</div>
+<script type="text/x-template" id="my-dialog">
+    <div id="dialog-box">
+        <div class="dialog-title">
+            <span class="title-name">{{title}}</span>
+            <span class="close" @click="$emit('close')">[x]</span>
+        </div>
+        <div class="content">
+          <slot>
+              <span>用户名：</span>
+              <input type="text">
+              <br>
+              <span>密码：</span>
+              <input type="text">
+          </slot>
+        </div>
+    </div>
+</script>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            regShow:false,
+            loginShow:false
+        },
+        methods:{
+            login(){
+                this.regShow=false;
+                this.loginShow=true;
+            },
+            reg(){
+                this.regShow=true;
+                this.loginShow=false;
+            },
+            close(){
+                this.regShow=false;
+                this.loginShow=false;
+            }
+        },
+        components:{
+            'my-dialog':{
+                template:"#my-dialog",
+                props:['title']
+            }
+        }
+    })
+</script>
+</body>
+</html>
