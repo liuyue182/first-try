@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <my-dialog>
+        用户名：<input type="text">
+    </my-dialog>
+</div>
+<script type="text/x-template" id="my-dialog">
+        <div class="content">
+            <slot>
+                用户名：<input type="text">
+                <br>
+                密码是：<input type="password">
+            </slot>
+        </div>
+</script>
+<script src="vue.js"></script>
+<script>
+    new Vue({
+        el:'#app',
+        components:{
+            "my-dialog":{
+                template:'#my-dialog'
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
