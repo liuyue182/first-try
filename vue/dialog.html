@@ -35,13 +35,25 @@
 <div id="app">
     <button @click="login">登录</button>
     <button @click="reg">注册</button>
-    <my-dialog title="登录" v-show="loginShow" @close="close"></my-dialog>
+    <my-dialog title="登录" v-show="loginShow" @close="close">
         <span>用户名：</span>
         <input type="text">
         <br>
         <span>密码d：</span>
         <input type="text">
-    <my-dialog title="注册" v-show="regShow" @close="close"></my-dialog>
+        <input type="submit">
+    </my-dialog>
+    <my-dialog title="注册" v-show="regShow" @close="close">
+        <span>用户名：</span>
+        <input type="text">
+        <br>
+        <span>密码：</span>
+        <input type="text">
+        <span>邮箱：</span>
+        <input type="text">
+        <input type="submit">
+        <input type="reset">
+    </my-dialog>
 
 </div>
 <script type="text/x-template" id="my-dialog">
