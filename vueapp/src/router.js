@@ -14,18 +14,22 @@ export default new Router({
   routes: [
       {
         path:'/movie',
+        name:'moive',
         component:Movie
       },
       {
           path:'/music',
+          name:'music',
           component:Music
       },
       {
           path:'/book',
+          name:'book',
           component:Book
       },
       {
           path:'/photo',
+          name:'photo',
           component:Photo
       }
   ],

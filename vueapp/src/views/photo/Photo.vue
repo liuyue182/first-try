@@ -1,5 +1,7 @@
 <template>
-  <div class="about">
-    <h1>Photo</h1>
+  <div class="photo">
+    <h1>photo</h1>
   </div>
 </template>
+
+
