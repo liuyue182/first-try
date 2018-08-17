@@ -1,5 +1,5 @@
 <template>
-    <ul class="foot" :style="{background:bgColor}">
+    <ul class="footer" :style="{background:bgColor}">
         <li v-for="menu in menuList">
             <router-link :to="menu.path" @click.native="changeBg(menu)">{{menu.name}}</router-link>
         </li>
@@ -22,10 +22,9 @@
     }
 </script>
 <style lang="scss">
-    .foot{
+    .footer {
         height: 1rem;
         width: 100%;
-        background: rgb(33, 150, 243);
         color: #fff;
         position: fixed;
         bottom: 0;
@@ -42,6 +41,5 @@
                 }
             }
         }
-
     }
 </style>

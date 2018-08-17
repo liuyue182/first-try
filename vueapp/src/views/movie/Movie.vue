@@ -1,52 +1,60 @@
 <template>
   <div class="movie">
     <ul>
-      <li v-for="moive in movieList">
-        <div class="movie-img">
-          <img src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2529571873.jpg" alt="">
-        </div>
-        <div class="movie-dic">
-          <h3>一出好戏</h3>
-          <p>观众评<span class="org">8.2</span></p>
-          <p>主演<span>hsss</span></p>
-        </div>
-      </li>
+      <MovieList v-for="movie in movieList" :movie="movie"></MovieList>
     </ul>
+    <div class="loading" v-show="isShow">
+      <img src="../../assets/img/loading.gif" alt="">
+    </div>
+    <div v-show="isEnd">
+        到底了...
+    </div>
   </div>
 </template>
-<style>
-  .movie li{
-    display: flex;
-    padding:10px;
-  }
-  .movie-img{
-    flex-grow: 1;
-    width: 0;
-  }
-  .movie-dic{
-    flex-grow: 3;
-    width: 0;
-    margin-left: 20px;
-  }
-  .org{
-    color: orange;
-  }
-</style>
 <script>
-    import Axios from 'axios';
-    export default{
-        data(){
-            return {
-                movieList:[]
-            }
-        },
-        created(){
-            //https://developers.douban.com/wiki/?title=movie_v2
-            Axios.get('https://bird.ioliu.cn/v1?url=https://api.douban.com/v2/movie/top250')
-                .then((res)=>{
-                    this.movieList = res.data.subjects;
-                    console.log(this.movieList);
-                });
-        }
-    }
+  import Axios from 'axios';
+  import MovieList from '@/views/movie/MovieList.vue';
+  export default{
+      data(){
+          return {
+            movieList:[],
+            isShow:false,
+            isEnd:false
+          }
+      },
+      created(){
+         this.getData();
+          window.onscroll= ()=> {
+              var scrollTop = document.documentElement.scrollTop;
+              var scrollHeight = document.documentElement.scrollHeight;
+              var clientHeight = document.documentElement.clientHeight;
+              if(scrollTop + clientHeight==scrollHeight-10 && !this.isEnd){
+                  this.isShow = true;
+                  this.getData();
+              }
+          }
+      },
+      methods:{
+          getData(){
+              Axios.get('/movie.json')
+              .then((res)=>{
+                  var arr = res.data.subjects.slice(this.movieList.length,this.movieList.length+5);
+                  this.movieList = [...this.movieList,...arr];
+                      this.isShow = false;
+                      if(arr.length < 5){
+                          this.isEnd = true;
+                      }
+              });
+          }
+      },
+      components:{
+          MovieList
+      }
+  }
 </script>
+<style lang="scss">
+  .loading{
+    text-align: center;
+  }
+
+</style>
