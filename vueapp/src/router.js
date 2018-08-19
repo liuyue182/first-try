@@ -5,6 +5,7 @@ import Book from './views/book/Book.vue';
 import Photo from './views/photo/Photo.vue';
 import Music from './views/music/Music.vue';
 import MovieDetail from './views/movie/MovieDetail.vue';
+import PhotoDetail from './views/photo/PhotoDetail.vue';
 Vue.use(Router);
 
 export default new Router({
@@ -35,6 +36,10 @@ export default new Router({
           path:'/movie-detail/:id',
           name:'moviedetail',
           component:MovieDetail
+      },
+      {
+          path:'/PhotoDetail/:id',
+          component:PhotoDetail
       }
   ],
 });
