@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    // function* f() {
+    //     yield 'hellow';
+    //     yield  'world';
+    //     yield  'gen';
+    //     return 0;
+    // }
+    // var gen=f();
+    // console.log(gen.next());
+    // console.log(gen.next());
+    // console.log(gen.next());
+    // console.log(gen.next());
+
+    // function* f() {
+    //     var x=2*(yield 3+5);
+    //     var y=yield  x/4;
+    //     return y;
+    // }
+    // var  gen=f();
+    // var a=gen.next();
+    // console.log(gen.next(a.value));
+    // console.log(gen.next(4));
+
+    function request(url){
+        $.get(url,res=>{
+            console.log(res);
+//            console.log(g.next());
+        })
+//        setTimeout(function(){
+//            console.log(1);
+//        },0);
+        return 3;
+    }
+    function* f() {
+        yield  request('a.json');
+        yield  request('b.json');
+        yield  request('c.json');
+        return 0;
+    }
+    var g=f();
+    var a=g.next();
+    console.log(a);
+
+</script>
+</body>
+</html>
