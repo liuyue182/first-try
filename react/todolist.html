@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #root{
+            width: 500px;
+            margin: 0 auto;
+        }
+        .div2{
+            text-align: center;
+        }
+
+        .UL{
+            width: 500px;
+            background: #ffcccc;
+            border:1px solid gray;
+        }
+        .last{
+            background: white;
+        }
+        .UL li{
+            list-style: none;
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px solid gray;
+        }
+        .UL li button{
+            float: right;
+            margin: 0;
+        }
+        .select{
+            background: #fffc9f;
+            text-decoration:line-through ;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+
+</div>
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="browser.min.js"></script>
+<script type="text/babel">
+    class Main extends React.Component{
+        constructor(props) {
+            super(props);
+            this.state = {
+                count:0,
+                list: [
+                    {name: '吃早饭',id:1,isFinished:false},
+                    {name: '吃午饭',id:2,isFinished:false},
+                    {name: '吃晚饭',id:3,isFinished:false}
+                ],
+            }
+        }
+        saveHandle(val){
+            var arr = this.state.list;
+            arr.push({
+                id:this.state.list[this.state.list.length-1].id+1,
+                name:val,
+                isFinished:false});
+            this.setState({
+                list:arr
+            })
+
+        }
+        del(index)
+        {
+            let arr=this.state.list;
+            arr.splice(index,1);
+            this.setState({
+                list:arr
+            })
+        }
+        change(i){
+            let arr=this.state.list;
+            arr[i].isFinished=!arr[i].isFinished;
+            this.setState({
+                list:arr
+            })
+            let num = 0;
+            arr.forEach(item => {
+                if(item.isFinished){
+                    num++
+                }
+            });
+            this.setState({
+                count:num
+            })
+        }
+        render()
+        {
+            return (
+                <div>
+                    <h1 className="div2">todoList</h1>
+                    <Save myClick={this.saveHandle.bind(this)}></Save>
+                    <ul className="UL">
+                        {
+                            this.state.list.map((item, index) => {
+                                return <List item={item} key={item.id} index={index} myClick={this.del.bind(this)} change={this.change.bind(this)}></List>
+                            })
+                        }
+                        <li className="last">{this.state.count}已完成/{this.state.list.length}全部</li>
+                    </ul>
+                </div>
+            )
+        }
+    }
+    class Save extends React.Component{
+        constructor(props) {
+            super(props);
+        }
+        save() {
+            if (this.refs.myText.value) {
+                this.props.myClick(this.refs.myText.value);
+                this.refs.myText.value = '';
+            }
+        }
+        render(){
+            return(
+                <div>
+                    <div>
+                    <label htmlFor="name">任务：</label>
+                    <input id="name" type="text" ref="myText" placeholder="请输入任务名"/>
+                    </div>
+                <button onClick={this.save.bind(this)}>保存任务</button>
+                </div>
+            )
+        }
+    }
+
+    class List extends React.Component{
+        constructor(props){
+            super(props);
+            this.state=({
+                num:0
+            })
+        }
+        render(){
+            return(
+                <div>
+                    <li className={ this.props.item.isFinished ? 'select':''}>
+                        <input type="checkbox" defaultChecked={ this.props.item.isFinished }
+                               onClick={
+                                   ()=>{
+                                       this.props.change(this.props.index)
+                                   }
+                               }/>
+                        <span >{this.props.item.name}</span>
+                        <button
+                                onClick={
+                                    ()=>{
+                                        this.props.myClick(this.props.index)
+                                    }
+                                }>删除</button>
+                    </li>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(
+        <Main></Main>,
+        document.getElementById('root')
+    )
+</script>
+</body>
+</html>

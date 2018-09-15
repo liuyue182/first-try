@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .a{
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+
+</div>
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="browser.min.js"></script>
+<script type="text/babel">
+    class Show extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state={
+            }
+        }
+        render(){
+            let style={
+                background:'pink',
+                color:'white'
+            }
+            return(
+                <div>
+                    <h3 className="a">4445</h3>
+                    <p style={style}>5555</p>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(
+        <Show></Show>,
+        document.getElementById('root')
+    );
+
+
+
+</script>
+
+
+
+</body>
+</html>
