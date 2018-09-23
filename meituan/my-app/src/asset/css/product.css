@@ -1,0 +1,21 @@
+.pro-container{
+    display: flex;
+}
+.pro-img{
+    width: 1.5rem;
+    height:1.5rem;
+    margin-right:10px;
+}
+.pro-content{
+    flex: 1;
+    border-bottom: 1px solid #ddd8ce;
+    margin: 0;
+    padding: 0;
+}
+.pro-sold{
+    float: right;
+}
+.pro-current-price{
+    color: #1cb364;
+    font-size: 18px;
+}

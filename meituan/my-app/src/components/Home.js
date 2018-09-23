@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import { NavBar, Icon, SearchBar, Grid,ListView} from 'antd-mobile';
+import { NavBar, Icon, SearchBar, Grid,Flex,WhiteSpace} from 'antd-mobile';
 import './../asset/css/home.css';
-import List from './List';
+import Container from './Container'
+import Product from './Procduct'
+import 'whatwg-fetch';
 
 export default class Home extends Component{
     constructor(props){
@@ -53,7 +55,7 @@ export default class Home extends Component{
                     text:"美食"
                 },
                 {
-                    icon:'img2',
+                    icon:require('./../asset/img/img1.png'),
                     text:"电影"
                 },
                 {
@@ -61,12 +63,25 @@ export default class Home extends Component{
                     text:"美食"
                 },
                 {
-                    icon:'img2',
+                    icon:require('./../asset/img/img1.png'),
                     text:"电影"
                 }
             ]
+            , product:[]
         }
     }
+    componentWillMount(){
+        fetch('http://www.xiechenxi.cn/')
+            .then((response) => {
+                return response.json()
+            }).then((data) => {
+            this.setState({
+                product:data
+            })
+            console.log(data)
+        })
+    }
+
     render(){
         return (
             <div>
@@ -79,11 +94,31 @@ export default class Home extends Component{
                 >
                     <SearchBar placeholder="输入搜索内容" maxLength={8} />
                 </NavBar>
-
                 <Grid data={this.state.data} isCarousel columnNum={5} hasLine={false}/>
-
-                <List></List>
-
+                <WhiteSpace size="lg"></WhiteSpace>
+                <Flex>
+                    <Flex.Item>
+                        <h3 className="active-title active-title-green">我们约会吧</h3>
+                        <span>恋人家人好朋友</span>
+                        <img className="active-img" src={require("./../asset/img/activity1.png")}alt=""/>
+                    </Flex.Item>
+                    <Flex.Item>
+                        <h3 className="active-title active-title-red">低价超值</h3>
+                        <span>十元惠生活</span>
+                        <img className="active-img" src={require("./../asset/img/activity2.jpg")} alt=""/>
+                    </Flex.Item>
+                    <Flex.Item>
+                        <h3 className="active-title active-title-pink">工作简餐</h3>
+                        <span>实惠方便选择多</span>
+                        <img className="active-img" src={require("./../asset/img/activity3.png")}alt=""/>
+                    </Flex.Item>
+                </Flex>
+                <WhiteSpace size="lg"></WhiteSpace>
+                <Container title="猜你喜欢">
+                    {this.state.product.map((elem,index)=>{
+                        return <Product key={elem.product_id} elem={elem}></Product>
+                    })}
+                   </Container>
 
             </div>
         )

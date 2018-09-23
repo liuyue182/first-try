@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router,Route } from 'react-router-dom';
-import { Button } from 'antd-mobile';
 import Home from './Home';
 import Detail from './Detail';
 
