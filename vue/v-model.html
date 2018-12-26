@@ -6,7 +6,7 @@
 </head>
 <body>
 <div id="div1">
-    <input type="text" @keyup="fun" v-model="val">
+    <input type="text" @input="fun" v-model="val">
     {{msg}}
 </div>
 <script src="vue.js"></script>
@@ -19,9 +19,9 @@
         },
         methods:{
             fun(){
-                if(event.keyCode == 13){
+
                     this.msg+=this.val * 1
-            }
+
         }}
     })
 </script>

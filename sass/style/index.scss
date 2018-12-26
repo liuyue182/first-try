@@ -1,0 +1,45 @@
+$color:#000;
+$background:#fff;
+#div1{
+  color:$color;
+  background: $background;
+  font-size: 19px;
+  a{
+    width: 20px;
+    &:hover{
+      color:red;
+    }
+    &-test{
+      height: 10px;
+    }
+
+  }
+}
+#div3{
+  background: {
+    color: #1cb364;
+  };
+  border: #1cb364 solid 2px;
+
+}
+@mixin xx($size,$color:#ccc){
+  width: $size;
+  height: $size;
+  background: $color;
+}
+#div4{
+  @include xx(200px);
+}
+#div5{
+  @include xx($color:#000,$size:210px);
+  a{
+    font-size: 20px;
+  }
+}
+#div6{
+  color: #0000ff;
+  @extend #div5
+}
+#div7{
+  color:lighten($color,20%);
+}

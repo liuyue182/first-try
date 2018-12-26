@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root">
+
+</div>
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="browser.min.js"></script>
+<script type="text/babel">
+    class Main extends React.Component{
+        constructor(props){
+            super(props);
+            this.state={
+                msg:100
+            }
+        }
+        change(){
+            console.log(111);
+            // this.setState({
+            //     msg:this.state.msg-10
+            // })
+        }
+        render(){
+            return(
+                <div>
+                    <h3>剩余人数{this.state.msg}</h3>
+                    <Product name="a队" num="100" myClick={this.change.bind(this)}></Product>
+                    <Product name="b队" num="80"></Product>
+                </div>
+            )
+        }
+    }
+    class Product extends React.Component{
+        constructor(props){
+            super(props);
+            this.state={
+                num:this.props.num*1
+            }
+        }
+        change(){
+            this.setState({
+                    num:this.state.num+10
+                });
+            this.props.myClick;
+        }
+        render(){
+            return(
+                <div>
+                    <p>{this.props.name}{this.state.num}</p>
+                    <button
+                        onClick={this.change.bind(this)}
+                    >调兵</button>
+                </div>
+            )
+        }
+    }
+    ReactDOM.render(
+        <Main></Main>
+        ,
+        document.getElementById('root')
+    )
+</script>
+</body>
+</html>

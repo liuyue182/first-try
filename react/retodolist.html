@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #root{
+            width: 500px;
+            margin: 0 auto;
+        }
+        .div2{
+            text-align: center;
+        }
+
+        .UL{
+            width: 500px;
+            background: #ffcccc;
+            border:1px solid gray;
+        }
+        .last{
+            background: white;
+        }
+        .UL li{
+            list-style: none;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid gray;
+        }
+        .UL li button{
+            float: right;
+            margin: 0;
+        }
+        .select{
+            background: #fffc9f;
+            text-decoration:line-through ;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+
+</div>
+<script src="react.development.js"></script>
+<script src="react-dom.development.js"></script>
+<script src="browser.min.js"></script>
+<script type="text/babel">
+    class Main extends React.Component{
+        constructor(props) {
+            super(props);
+            this.state={
+                count:0,
+                list:[
+                    {
+                        name:'吃饭',
+                        isfinish:false,
+                        id:1
+                    },
+                    {
+                        name:'睡觉',
+                        isfinish:false,
+                        id:2
+                    },
+                    {
+                        name:'打',
+                        isfinish:false,
+                        id:3
+                    }
+                ]
+            }
+        }
+        saveHandle(val){
+            console.log(val)
+            var arr=this.state.list;
+            arr.push({
+                name:val,
+                isfinish:false,
+                id:this.state.list[this.state.list.length-1].id+1
+            });
+            this.setState({
+                list:arr
+            })
+        }
+        delHandle(index){
+            //console.log(index);
+            let arr=this.state.list;
+            arr.splice(index,1);
+            this.setState({
+                list:arr
+            })
+        }
+        changeHandle(index){
+            //console.log(index);
+            let arr=this.state.list;
+            //用checked属性判断不好使
+            arr[index].isfinish=!arr[index].isfinish;
+            this.setState({
+                list:arr
+            })
+            let num=0;
+            arr.forEach(item=>{
+                if(item.isfinish)
+                    num++
+            })
+            this.setState({
+                count:num
+            })
+
+        }
+        render()
+        {
+            return (
+                <div>
+                    <h1 className="div2">todolist</h1>
+                    <Save myClick={this.saveHandle.bind(this)}></Save>
+                    <ul className="UL">
+                        {
+                            this.state.list.map((item,index)=>{
+                                return  <ListItem change={this.changeHandle.bind(this)} myClick={this.delHandle.bind(this)} index={index} key={item.id} name={item}></ListItem>
+                            })
+                        }
+                        <li className="last">{this.state.count}已完成/{this.state.list.length}全部</li>
+                    </ul>
+                </div>
+            )
+        }
+    }
+    class Save extends React.Component{
+        constructor(props) {
+            super(props);
+        }
+        save(){
+            //console.log(this.refs.myText.value)
+            //调用父组件方法
+            if(this.refs.myText.value){
+                this.props.myClick(this.refs.myText.value);
+                //修改保存任务后input为空
+                this.refs.myText.value='';
+            }
+        }
+
+        render(){
+            return(
+                <div>
+                    <div>
+                        <label htmlFor="name">任务：</label>
+                        <input id="name" type="text" ref='myText' placeholder="请输入任务名"/><br/>
+                        <button onClick={this.save.bind(this)}>保存任务</button>
+                    </div>
+                </div>
+            )
+        }
+    }
+
+    class ListItem extends React.Component{
+        constructor(props){
+            super(props);
+
+        }
+        change(){
+        }
+        render(){
+            return(
+                <li className={this.props.name.isfinish ? 'select':''}>
+                    <input type="checkbox" defaultChecked={this.props.name.isfinish} onClick={()=>{this.props.change(this.props.index)}}/>
+                    <span>{this.props.name.name}</span>
+                    <button onClick={()=>{
+                        this.props.myClick(this.props.index)
+                    }}>删除</button>
+                </li>
+            )
+        }
+    }
+    ReactDOM.render(
+        <Main></Main>,
+        document.getElementById('root')
+    )
+</script>
+</body>
+</html>
